@@ -7,5 +7,7 @@ class Customer < ApplicationRecord
     ["image_attachment", "image_blob"]
   end
 
+  validates :full_name, presence: true
+
   has_one_attached :image
 end
