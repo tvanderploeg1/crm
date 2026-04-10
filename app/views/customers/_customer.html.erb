@@ -1,0 +1,36 @@
+<div class="card mb-4">
+  <div class="card-content">
+    <p class="title is-5"><%= customer.full_name %></p>
+
+    <% if customer.image.attached? %>
+      <figure class="image mb-4" style="max-width: 220px;">
+        <%= image_tag customer.image, alt: customer.full_name, class: "is-rounded" %>
+      </figure>
+    <% else %>
+      <p class="mb-4 has-text-grey is-size-7">No photo</p>
+    <% end %>
+
+    <div class="content">
+      <p>
+        <strong>Phone:</strong>
+        <%= customer.phone_number.presence || tag.span("—", class: "has-text-grey") %>
+      </p>
+      <p>
+        <strong>Email:</strong>
+        <% if customer.email_address.present? %>
+          <%= customer.email_address %>
+        <% else %>
+          <span class="has-text-grey">No email on file</span>
+        <% end %>
+      </p>
+      <div class="mb-3">
+        <strong>Notes:</strong>
+        <% if customer.notes.present? %>
+          <div class="mt-2"><%= simple_format(customer.notes) %></div>
+        <% else %>
+          <span class="has-text-grey">No notes</span>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
