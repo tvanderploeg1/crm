@@ -5,3 +5,7 @@ Rails.application.config.assets.version = "1.0"
 
 # Add additional assets to the asset load path.
 # Rails.application.config.assets.paths << Emoji.images_path
+
+# Importmap + Stimulus live under app/javascript; Sprockets must see them for precompile
+# (ActiveAdmin added Sprockets alongside Propshaft).
+Rails.application.config.assets.paths << Rails.root.join("app/javascript")
