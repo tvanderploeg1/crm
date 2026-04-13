@@ -40,8 +40,11 @@ This project implements Challenge 6 requirements:
 
 - Admin login path: `/admin`
 - Create an admin user if needed:
-  - `bin/rails console`
-  - `AdminUser.create!(email: "admin@example.com", password: "password123", password_confirmation: "password123")`
+   - AdminUser.create!(
+      - email: ENV.fetch("ADMIN_EMAIL", "admin@example.com"),
+      - password: ENV.fetch("ADMIN_PASSWORD"),
+      - password_confirmation: ENV.fetch("ADMIN_PASSWORD")
+    )
 
 ## Feature Notes
 
