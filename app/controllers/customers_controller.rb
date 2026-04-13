@@ -8,6 +8,6 @@ class CustomersController < ApplicationController
   end
 
   def missing_email
-    @customers = Customer.all.with_attached_image.where(email_address: nil)
+    @customers = Customer.with_attached_image.where(email_address: [nil, ""])
   end
 end
